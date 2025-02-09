@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Size Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h2>Position Size Calculator</h2>
+        <form id="form" class="form">
+            <label for="equity">Total Equity:</label>
+            <input type="number" id="equity" name="equity" placeholder="Enter total equity" min="0.000001" step="any" required>
+
+            <label for="risk">Max Risk (% of Total Equity):</label>
+            <input type="number" id="risk" name="risk" placeholder="Enter max risk percentage" min="0.000001" step="any" value="1" required>
+
+            <label for="stopLoss">Stop Loss (%):</label>
+            <input type="number" id="stopLoss" name="stopLoss" placeholder="Enter stop loss percentage" min="0.000001" step="any" required>
+
+            <label for="fee">Trading Fee (%):</label>
+            <input type="number" id="fee" name="fee" placeholder="Enter trading fee percentage" min="0" step="any" value="0.1" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <div class="result" id="result">
+        <label for="position">Position Size:</label>
+        <input type="number" id="position" name="position" readonly disabled>
+
+        <label for="position-leverage">Position Leverage:</label>
+        <input type="number" id="position-leverage" name="position-leverage" readonly disabled>
+
+        <label for="takeProfit">Take Profit:</label>
+        <output id="tpOut">2</output>
+        <input class="range-input" type="range" id="takeProfit" name="take-profit"
+               min="1" max="10" step="0.1" value="2"
+               oninput="updateTp(this.value)">
+
+        <label for="gain">Potential gain:</label>
+        <input type="number" id="gain" name="potential-gain" readonly disabled>
+
+        <label for="loss">Potential loss:</label>
+        <input type="number" id="loss" name="potential-loss" readonly disabled>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
